@@ -3,14 +3,14 @@ import { useState } from "react"
 import "./Nav.css"
 
 function Nav() {
-  const [click, setClick] = useState(false)
+  const [showLinks, setShowLinks] = useState(false)
 
-  const handleClick = () => {
-    click ? setClick(false) : setClick(true)
+  const handleShowLinks = () => {
+    setShowLinks(!showLinks)
   }
 
   return (
-    <nav className={`navbar ${click ? "show-nav" : "hide-nav"}`}>
+    <nav className={`navbar ${showLinks ? "show-nav" : "hide-nav"}`}>
       <div className="navbar__logo">Logo</div>
       <ul className="navbar__links">
         <li className="navbar__item slideInDown-1 ">
@@ -39,7 +39,7 @@ function Nav() {
           </a>
         </li>
       </ul>
-      <button className="navbar__burger" onClick={handleClick}>
+      <button className="navbar__burger" onClick={handleShowLinks}>
         <span className="burger-bar"></span>
       </button>
     </nav>
